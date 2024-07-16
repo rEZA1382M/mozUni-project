@@ -1,0 +1,15 @@
+.container-fluid{
+  background-color: #1D2D44;
+}
+a:hover{
+  text-decoration:underline;
+  color: #BCB8A9;
+}
+a:link{
+  text-decoration:none;
+  color: #BCB8A9;
+}
+a:visited{
+  text-decoration:none;
+  color: #BCB8A9;
+}

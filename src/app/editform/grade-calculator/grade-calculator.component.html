@@ -1,0 +1,45 @@
+<div class = "container pt-3" style = "position: relative; height: fit-content">
+
+
+  <form [formGroup] = "gradeForm" (ngSubmit) = "calcGrade()">
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="basic-addon1"><span style = "color: red">*</span>Subject1</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Subject1" formControlName = "subject1" [class.is-invalid] = "gradeForm.controls.subject1.invalid && (gradeForm.controls.subject1.touched || gradeForm.controls.subject1.dirty)">
+    </div>
+    <div class = "alert alert-danger" *ngIf = "this.gradeForm.controls.subject1.invalid && gradeForm.controls.subject1.touched">your input is invalid</div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="basic-addon2"><span style = "color: red">*</span>Subject2</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Subject2" formControlName = "subject2" [class.is-invalid] = "gradeForm.controls.subject2.invalid && (gradeForm.controls.subject2.touched || gradeForm.controls.subject2.dirty)">
+    </div>
+    <div class = "alert alert-danger" *ngIf = "this.gradeForm.controls.subject2.invalid && gradeForm.controls.subject2.touched">your input is invalid</div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="basic-addon3"><span style = "color: red">*</span>Subject3</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Subject3" formControlName = "subject3" [class.is-invalid] = "gradeForm.controls.subject3.invalid && (gradeForm.controls.subject3.touched || gradeForm.controls.subject3.dirty)">
+    </div>
+    <div class = "alert alert-danger" *ngIf = "this.gradeForm.controls.subject3.invalid && gradeForm.controls.subject3.touched">your input is invalid</div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="basic-addon4"><span style = "color: red">*</span>Subject4</div>
+      </div>
+      <input type="text" class="form-control" placeholder="Subject4" formControlName = "subject4" [class.is-invalid] = "gradeForm.controls.subject4.invalid && (gradeForm.controls.subject4.touched || gradeForm.controls.subject4.dirty)">
+    </div>
+    <div class = "alert alert-danger" *ngIf = "this.gradeForm.controls.subject4.invalid && gradeForm.controls.subject4.touched">your input is invalid</div>
+
+
+    <button type="submit" class="btn btn-primary mb-3">Calculate Grade</button>
+
+  </form>
+
+
+
+</div>

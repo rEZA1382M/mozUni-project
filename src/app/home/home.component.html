@@ -1,0 +1,151 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col">
+      <h1 style = "font-size: 68px">Moz University</h1>
+      <p style = "font-size: 35px">Welcome to the official Moz university website</p>
+      <div class = "card show-pc1">
+          <div class = "card-body" style = "font-size: 25px">
+            Moz University, also called the Moz Polytechnic, is a public university located in Tehran, Iran. Founded in 1958, MU is the oldest university established in Iran. It is referred to as the 'Mother of Moz Universities'.
+          </div>
+        </div>
+    </div>
+
+      <div id="carouselExample" class="carousel slide slides">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="./assets/nozz.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item active">
+            <img src="./assets/mozz.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+  </div>
+</div>
+
+
+
+<div class = "container pt-2">
+
+  <div class = "row">
+
+    <h1>Our Links!</h1>
+
+    <div class = "col">
+      <div class="card mb-3" style = "background-color: #1D2D44; max-width: 30rem; color: white">
+        <div class="card-header">Students list</div>
+        <div class="card-body">
+          <p class="card-text">Check out the students list!</p>
+          <button type="button" class="btn btn-light" [routerLink] = "'/student'">Students list</button>
+        </div>
+      </div>
+    </div>
+
+    <div class = "col">
+      <div class="card mb-3" style = "background-color: #2A5E63; max-width: 30rem; color: white">
+        <div class="card-header">Department</div>
+        <div class="card-body">
+          <p class="card-text">Check out each department students!</p>
+          <button type="button" class="btn btn-light" [routerLink] = "'/department'">Department</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class = "col">
+      <div class = "card mb-3" style = "background-color: #2678b0; max-width: 30rem; color: white">
+        <div class = "card-header">Faculty staff</div>
+        <div class = "card-body">
+          <p class = "card-text">Check out each faculty professor!</p>
+          <button type = "button" class = "btn btn-light" [routerLink] = "'/facultyStaff'">Faculty staff</button>
+        </div>
+      </div>
+    </div>
+
+    <div class = "col">
+      <div class="card mb-3" style = "background-color: #2F3E46; max-width: 30rem; color: white">
+        <div class="card-header">About</div>
+        <div class="card-body">
+          <p class="card-text">Learn more about us!</p>
+          <button type="button" class="btn btn-light" [routerLink] = "'/about'">About</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<div class = "container-fluid">
+  <div class = "row" style = "background-color: #144b4a">
+    <h1>More Info about our students!</h1><br><br><br><br>
+    <app-info></app-info>
+  </div>
+</div>
+
+<div class = "container-fluid">
+
+  <div class = "row" style = "background-color: #008c78">
+
+    <div class = "col" *ngIf = "stsrv.loggedInStudent == undefined">
+      <h2 style = "font-size: 40px; margin-top: 10px;">Login to access more features <img src = "./assets/icons8-login-40.png" style = "cursor: pointer" [routerLink] = "'/login'" alt = "Login"></h2>
+      <app-login class = "container-fluid"></app-login>
+    </div>
+
+    <div class = "container-fluid pt-3 d-flex justify-content-center" *ngIf = "stsrv.loggedInStudent != undefined">
+
+      <div class = "col-lg-5 col-md-6 col-sm-7 col-xs-7 mb-5">
+        <h1 style = "color: white">Welcome back {{stsrv.loggedInStudent.name}}! <img src = "./assets/logged%20in%20banana.png" alt = "Logged in"></h1>
+        <div class = "card mb-2" style = "background-color: #294069; color: white">
+          <div class = "card-header">Details</div>
+          <div class = "card-body">
+            <div class = "card-text">
+              <table class = "table">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>ID</th>
+                  <th>Age</th>
+                  <th>Grade</th>
+                  <th>Role</th>
+                </tr>
+                </thead>
+                <tr>
+                  <td>{{stsrv.loggedInStudent.name}}</td>
+                  <td>{{stsrv.loggedInStudent.id}}</td>
+                  <td>{{stsrv.loggedInStudent.age}}</td>
+                  <td>{{stsrv.loggedInStudent.grade}}</td>
+                  <td>{{stsrv.loggedInStudent.role}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+          <button type = "button" style = "background-color: #A2AEA5; color: black" class = "btn w-100" (click) = "stsrv.loggedInStudent = undefined; router.navigate(['/login'])">Log out</button>
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class = "container-fluid">
+  <div class = "row" style = "background-color: #008f55">
+    <div class = "col">
+      <h1 style = "font-size: 60px">Planner <img [routerLink] = "'/courseUnit'" style = "margin-top: 5px; cursor: pointer" src = "./assets/brainReal.png" alt = "Planner"></h1>
+      <p style = "font-size: 35px">Use the weekly planner to have a overview of your courses!</p>
+      <button type = "button" class = "btn btn-light mb-3" [routerLink] = "'/courseUnit'">Go to Planner</button>
+    </div>
+    <div class = "row">
+      <app-course-table [checker] = "false"></app-course-table>
+    </div>
+  </div>
+</div>
+

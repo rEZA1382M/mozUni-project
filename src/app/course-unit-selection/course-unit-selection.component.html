@@ -1,0 +1,191 @@
+<div class = "container pt-3">
+<div class = "d-flex justify-content-center">
+<div class = "card col-lg-8 col-md-8 col-sm-8 col-xs-8 mb-3">
+  <div class = "card-header">Planner</div>
+  <div class = "card-body">
+    <form [formGroup] = "courseForm">
+      <div class = "input-group mb-3">
+        <div class = "input-group-prepend">
+          <div class = "input-group-text"><span style = "color: red">*</span>Name</div>
+        </div>
+        <input type = "text" class = "form-control" placeholder = "course name" formControlName = "courseName" [class.is-invalid] = "courseForm.controls.courseName.invalid && (courseForm.controls.courseName.touched || courseForm.controls.courseName.dirty)">
+      </div>
+
+      <div class = "input-group mb-3">
+        <div class = "input-group-prepend">
+          <div class = "input-group-text">Exam Date</div>
+        </div>
+        <div class = 'col-8'>
+          <ng-persian-datepicker [uiTheme] = "customTheme" [uiHideAfterSelectDate] = "true">
+            <input type = "text" class = "form-control" [formControl] = "courseForm.controls.examDate">
+          </ng-persian-datepicker>
+        </div>
+        <div class = "col">
+          <select class = "form-select" formControlName = "examTimeStart">
+            <option Value = "null" disabled [selected] = "true">Time</option>
+            <option *ngFor = "let values of timesStart">{{values}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class = "col-12 mb-3">
+        <input type = "checkbox" class = "btn-check" (change) = "showSat($event)" id = "btn-check0" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check0" style = "margin-right: 7px">Saturday</label>
+
+        <input type = "checkbox" class = "btn-check" (change) = "showSun($event)" id = "btn-check1" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check1" style = "margin-right: 7px">Sunday</label>
+
+        <input type = "checkbox" class = "btn-check" (change) = "showMon($event)" id = "btn-check2" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check2" style = "margin-right: 7px">Monday</label>
+
+        <input type = "checkbox" class = "btn-check" (change) = "showTue($event)" id = "btn-check3" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check3" style = "margin-right: 7px">Tuesday</label>
+
+        <input type = "checkbox" class = "btn-check" (change) = "showWed($event)" id = "btn-check4" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check4" style = "margin-right: 7px">Wednesday</label>
+
+        <input type = "checkbox" class = "btn-check" (change) = "showThr($event)" id = "btn-check5" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check5" style = "margin-right: 7px">Thursday</label>
+
+        <input type = "checkbox" class = "btn-check" (change) = "showFri($event)" id = "btn-check6" autocomplete = "off" />
+        <label class = "btn btn-primary mb-2" for = "btn-check6" style = "margin-right: 7px">Friday</label>
+      </div>
+
+    <div *ngIf = "dayPicker.satChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Saturday</div>
+      </div>
+      <select class = "form-select" formControlName = "start0">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end0">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    <div *ngIf = "dayPicker.sunChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Sunday</div>
+      </div>
+      <select class = "form-select" formControlName = "start1">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end1">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    <div *ngIf = "dayPicker.monChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Monday</div>
+      </div>
+      <select class = "form-select" formControlName = "start2">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end2">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    <div *ngIf = "dayPicker.tueChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Tuesday</div>
+      </div>
+      <select class = "form-select" formControlName = "start3">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end3">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    <div *ngIf = "dayPicker.wedChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Wednesday</div>
+      </div>
+      <select class = "form-select" formControlName = "start4">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end4">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    <div *ngIf = "dayPicker.thrChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Thursday</div>
+      </div>
+      <select class = "form-select" formControlName = "start5">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end5">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    <div *ngIf = "dayPicker.friChecker" class = "input-group mb-3">
+      <div class = "input-group-prepend">
+        <div class = "input-group-text">Friday</div>
+      </div>
+      <select class = "form-select" formControlName = "start6">
+      <option Value = "null" disabled [selected] = true>Select</option>
+      <option *ngFor = "let values of timesStart">{{values}}</option>
+    </select>
+      <span style = "margin-right: 10px; margin-left: 10px">till</span>
+      <select class = "form-select" formControlName = "end6">
+        <option Value = "null" disabled [selected] = true>Select</option>
+        <option *ngFor = "let values of timesStart">{{values}}</option>
+      </select>
+    </div>
+    </form>
+
+    <button class = "btn btn-info" (click) = "coursesStore()">Submit</button>
+
+  </div>
+</div>
+</div>
+
+<div class = "row">
+<div class="mb-5">
+  <app-course-table [checker] = "moz"></app-course-table>
+</div>
+</div>
+
+<div class = "row">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Course Name</th>
+      <th scope = "col">Exam Date</th>
+      <th scope = "col">Exam Time</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody id = "allCourseTable">
+    <tr *ngFor = "let eachCourse of localCourses" id = "{{eachCourse.name}}">
+      <td>{{eachCourse.name}}</td>
+      <td>{{eachCourse.exam}}</td>
+      <td>{{eachCourse.examTimeStart}}</td>
+      <td><button (click) = "deleteCourse(eachCourse)" class = "btn" type = "button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+        <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+      </svg></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<div id = 'chart'></div>

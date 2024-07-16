@@ -1,0 +1,64 @@
+<div class = "container pt-3" style = "position: relative; height: fit-content; min-height: 280px">
+<form [formGroup] = "profileForm">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="basic-addon1"><span style = "color: red">*</span>Name</div>
+  </div>
+  <input type="text" class="form-control" placeholder="Name" formControlName = "name" [class.is-invalid] = "profileForm.controls.name.invalid && (profileForm.controls.name.touched || profileForm.controls.name.dirty)">
+</div>
+<div class = "alert alert-danger" *ngIf = "this.profileForm.controls.name.invalid && profileForm.controls.name.touched">your input is invalid</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="basic-addon3"><span style = "color: red">*</span>ID Department</div>
+  </div>
+  <input type="text" class="form-control" placeholder="ID Department" formControlName = "idDepartment" [class.is-invalid] = "profileForm.controls.idDepartment.invalid && (profileForm.controls.idDepartment.touched  && profileForm.controls.idDepartment.dirty)">
+</div>
+<div class = "alert alert-danger" *ngIf = "this.profileForm.controls.idDepartment.invalid && profileForm.controls.idDepartment.touched">your input is invalid</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="basic-addon4">Age</div>
+  </div>
+  <input type="text" class="form-control" placeholder="Age" formControlName = "age">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text" id="basic-addon5"><span style = "color: red">*</span>Grade</div>
+  </div>
+  <input type="text" class = "form-control" placeholder="Grade" formControlName = "grade" [class.is-invalid] = "gradeChecker" readonly>
+  <span><button (click) = "this.grade()" type = "button" class = "btn" style = "background-color: #2A5E63; color: #CAD2C5">Grade Calculator</button></span>
+</div>
+<div class = "alert alert-danger" *ngIf = "gradeChecker">Grade not calculated</div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text" id="basic-addon6"><span style = "color: red">*</span>Email</div>
+    </div>
+    <input type="text" class="form-control" placeholder="Email" formControlName = "email" [class.is-invalid] = "profileForm.controls.email.invalid && (profileForm.controls.email.touched && profileForm.controls.email.dirty)">
+  </div>
+  <div class = "alert alert-danger" *ngIf = "this.profileForm.controls.email.invalid && profileForm.controls.email.touched">your input is invalid</div>
+
+
+  <div *ngIf = "modalMode == 'create'" class="input-group mb-3">
+    <div class = "input-group-text"><span style = "color: red">*</span>Role</div>
+    <select class="form-select" formControlName = "role" [class.is-invalid] = "profileForm.controls.role.invalid && moz">
+      <option Value = "null" disabled [selected] = true>Select</option>
+      <option value = "teacher">Teacher</option>
+      <option value = "student">Student</option>
+    </select>
+  </div>
+
+  <div *ngIf = "modalMode == 'create'" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text" id="basic-addon7"><span style = "color: red">*</span>Password</div>
+    </div>
+    <input type="password" class="form-control" placeholder="Password" formControlName = "password" [class.is-invalid] = "profileForm.controls.password.invalid && (profileForm.controls.password.touched && profileForm.controls.password.dirty)">
+  </div>
+  <div class = "alert alert-danger" *ngIf = "this.profileForm.controls.password.invalid && profileForm.controls.password.touched">your input is invalid</div>
+
+  <button (click) = "updateProfile()"  class="btn btn-primary mb-3">Save changes</button>
+
+</form>
+</div>

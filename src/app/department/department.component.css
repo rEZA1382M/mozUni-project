@@ -1,0 +1,15 @@
+button{
+  font-size: 25px;
+}
+
+button:hover{
+  background-color: #008c78;
+  color: white;
+}
+h1{
+  font-size: 52px;
+  color: #2A5E63;
+}
+p{
+  font-size: 30px;
+}

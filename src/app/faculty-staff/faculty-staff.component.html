@@ -1,0 +1,30 @@
+<div class = "container pt-4">
+
+  <div class = "row d-flex justify-content-center">
+
+    <div class = "col-lg-6 col-md-10 col-sm-10 col-xs-6 mb-3">
+
+    <div class = "input-group input-group-lg">
+      <span class = "input-group-text">Name</span>
+      <input class = "form-control" (keyup) = "update($event)">
+    </div>
+
+    </div>
+
+    <ul *ngIf = "enteredName.length != 0" class = "flex-nowrap">
+      <li *ngFor = "let item of listStaff | mypipe: enteredName">
+        {{item.nameMem}}
+      </li>
+    </ul>
+  </div>
+
+  <div class = "row mb-3">
+<div class="btn-group col pt-3" role="group" aria-label="Basic outlined example" *ngFor = "let item of departments">
+  <button type="button" class="btn btn-outline-primary" (click) = "goToFacultyDetails(item.idDep)">{{item.namedep}}</button>
+</div>
+  </div>
+</div>
+
+<div class = "container-fluid">
+  <div echarts [options] = "chart"></div>
+</div>

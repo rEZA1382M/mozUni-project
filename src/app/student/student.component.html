@@ -1,0 +1,52 @@
+<div class = "container">
+
+
+<div class = "row">
+<h1>Students list</h1>
+  <div class = "col-lg-5 col-md-12 col-sm-12 col-xs-12 mb-3">
+    <div class = "input-group input-group-lg flex-nowrap">
+      <span class = "input-group-text">Name</span>
+<input (keyup) = "update($event)" class = "form-control">
+    </div>
+<ul *ngIf = "filterednames.length > 0">
+  <ng-container *ngFor="let item of filterednames">
+  <li><button (click) = "showStudent(item)" class = "list-group-item" [innerText] = "item.name"></button></li>
+  </ng-container>
+</ul>
+
+
+<div class = "pt-5" *ngIf="emptySearchBar >= 1">
+  <div class = "alert alert-danger">The name you are searching for doesnt exist!</div>
+</div>
+<div class = "pt-5" *ngIf="emptySearchBar == 0 && filterednames.length == 0 && selectedPersonName == ''">
+   <div class = "alert alert-info">Please enter a name in the searchbar!</div>
+</div>
+</div>
+
+
+<div class = "col mb-3">
+  <ng-container *ngIf = "selectedPersonName != ''">
+    <p class = "text-center" style = "text-decoration: underline">Selected Student:</p>
+  <table class = "table">
+
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>ID</th>
+      <th>Department</th>
+      <th>Age</th>
+      <th>Grade</th>
+    </tr>
+    </thead>
+      <tr>
+        <td [innerText] = "selectedPersonName"></td>
+        <td [innerText] = "selectedPersonId"></td>
+        <td [innerText] = "selectedPersonDepartment.namedep"></td>
+        <td [innerText] = "selectedPersonAge"></td>
+        <td [innerText] = "selectedPersonGrade"></td>
+      </tr>
+  </table>
+  </ng-container>
+  </div>
+</div>
+</div>

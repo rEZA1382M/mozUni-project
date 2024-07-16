@@ -1,0 +1,29 @@
+table{
+  border-color: #2F3E46;
+}
+
+thead>tr>th{
+    background-color: #2F3E46;
+    color: #CAD2C5;
+  }
+tr:nth-child(odd){
+  background-color: #006c3f;
+  color: black;
+}
+
+th, td{
+  padding: 15px;
+  width: 20%;
+}
+h3{
+  text-decoration: underline;
+}
+button{
+  background-color: #CAD2C5;
+  color: black
+}
+button:hover{
+  background-color: #00cb76;
+}
+
+

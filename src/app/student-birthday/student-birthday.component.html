@@ -1,0 +1,28 @@
+<div class = "container pt-3">
+
+<div class = "row">
+  <div class = "col-4">
+    <h3>Start: </h3>
+  <ng-persian-datepicker [uiTheme] = "customTheme" [dateMin] = "Jalali.parse('1360-12-01').valueOf()" [uiHideAfterSelectDate] = "true">
+    <input type = "text" class = "form-control" [formControl] = "dateValueMin">
+  </ng-persian-datepicker>
+  </div>
+  <div class = "col-4">
+    <h3>End: </h3>
+    <ng-persian-datepicker [uiTheme] = "customTheme" [dateMin] = "Jalali.parse('1360-12-01').valueOf()" [uiHideAfterSelectDate] = "true">
+      <input type = "text" class = "form-control" [formControl] = "dateValueMax">
+    </ng-persian-datepicker>
+  </div>
+  <div class = "col-4">
+    <h3>Search</h3>
+    <button type = "button" class = "btn btn-primary" (click) = "search(dateValueMin, dateValueMax)">Select date</button>
+  </div>
+</div>
+<ul *ngIf = "enteredDateMin" class = "pt-4 mb-3">
+  <li *ngFor = "let items of listStudents | dateSortPipe | datePipe: enteredDateMin: enteredDateMax "><div class = "col-4">{{
+    items.birthday.slice(0, 4) + "/" + items.birthday.slice(4, 6) + "/" + items.birthday.slice(6, 8)
+    }}</div></li>
+</ul>
+
+<div echarts [options] = "scatterChart"></div>
+</div>

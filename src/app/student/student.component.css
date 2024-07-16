@@ -1,0 +1,19 @@
+thead>tr>th{
+  background-color: #2F3E46;
+  color: #CAD2C5;
+}
+th, td{
+  padding: 5px;
+  width: 3%;
+}
+h1{
+  font-size: 70px;
+  color: #2A5E63;
+}
+p{
+  font-size: 20px;
+}
+button{
+  color: #00aaff;
+}
+

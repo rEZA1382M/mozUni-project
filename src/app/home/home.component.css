@@ -1,0 +1,26 @@
+thead>tr>th{
+  background-color: #0278ab;
+  color: #CAD2C5;
+}
+th, td{
+  padding: 5px;
+  width: 3%;
+}
+@media only screen and (max-width: 988px) {
+  .hide-pc {
+    display:none;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .show-pc1{
+    display: none;
+  }
+}
+@media only screen and (min-width: 994px){
+  .slides{
+    max-width: 50%;
+    margin-top: 40px;
+
+  }
+}
+
