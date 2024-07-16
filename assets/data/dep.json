@@ -1,0 +1,6 @@
+[
+  {"namedep":"Art","idDep":101},
+  {"namedep":"Engineering","idDep":102},
+  {"namedep": "Science", "idDep": 103},
+  {"namedep": "Medical Science", "idDep": 104}
+]

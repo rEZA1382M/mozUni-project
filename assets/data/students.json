@@ -1,0 +1,16 @@
+[
+  {"name": "john", "id": 6,"idDepartment": 101 ,"age": 19, "grade": 18},
+  {"name": "jack", "id": 1,"idDepartment": 102 ,"age": 19, "grade": 15},
+  {"name": "peter", "id": 2,"idDepartment": 103 ,"age":20, "grade": 16},
+  {"name": "mary", "id": 3,"idDepartment": 104, "age":21, "grade": 13},
+  {"name": "smith", "id": 4,"idDepartment": 101, "age":28, "grade": 12},
+  {"name": "oliver", "id": 5,"idDepartment": 101, "age":27, "grade": 17},
+  {"name": "michael", "id": 7,"idDepartment": 103, "age": 17, "grade": 10},
+  {"name": "curry", "id": 8,"idDepartment": 102, "age": 29, "grade": 19},
+  {"name": "emma", "id": 9,"idDepartment": 104, "age": 17, "grade": 10},
+  {"name": "alex", "id": 10,"idDepartment": 104, "age": 20, "grade": 12},
+  {"name": "bob", "id": 11,"idDepartment": 102, "age": 18, "grade": 9},
+  {"name": "dave", "id": 12,"idDepartment": 102, "age": 19, "grade": 19},
+  {"name": "jacob", "id": 13,"idDepartment": 103, "age": 20, "grade": 12},
+  {"name": "jack", "id": 14,"idDepartment": 103, "age": 14, "grade": 18}
+]
